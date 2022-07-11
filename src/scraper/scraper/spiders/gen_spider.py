@@ -1,20 +1,29 @@
 import scrapy
-from scrapy.linkextractors import LinkExtractor
-from scrapy.spiders import CrawlSpider, Rule
+from scrapy.spiders import CrawlSpider
+from srappers.items import item_loader, ProductItem
+import logging
 
 
-class GenSpiderSpider(CrawlSpider):
-    name = 'gen_spider'
-    allowed_domains = ['www.example.com']
-    start_urls = ['http://www.example.com/']
+#error _ handeling
 
-    rules = (
-        Rule(LinkExtractor(allow=r'Items/'), callback='parse_item', follow=True),
-    )
 
-    def parse_item(self, response):
-        item = {}
-        #item['domain_id'] = response.xpath('//input[@id="sid"]/@value').get()
-        #item['name'] = response.xpath('//div[@id="name"]').get()
-        #item['description'] = response.xpath('//div[@id="description"]').get()
-        return item
+class GenSpider(CrawlSpider):
+    name = 'crawl spiders'
+    def __init__(self, search_params, provider_obj, *args, **kwargs):
+        logger = logging.getLogger('scrapy.spidermiddlewares.httperror')
+        logger.setLevel(logging.INFO)
+        super(GenSpider, self).__init__(*args, **kwargs)
+
+        self.provider = provider_obj
+        self.limit = search_params['limit']
+        self.search_params = search_params
+    def start_requests(self):
+        url = self.provider.search_for_args(self.search_params['keyword'])
+        yield scrapy.Request(url, self.parse)
+    def parse(self, response):
+        data = response.css(self.provider.selectors['product_link_selc']).getall()
+        for url in data:
+            yield scrapy.Request(url, self.parse_product_page)
+    def parse_product_page(self, response):
+        yield item_loader(ProductItem,response, self.provider.selectors)
+

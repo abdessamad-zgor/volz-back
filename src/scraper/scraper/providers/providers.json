@@ -1,0 +1,17 @@
+{
+    "providers": [
+      {
+        "name": "Ebay",
+        "url": "https://www.ebay.com/",
+        "selectors": {
+          "search_box_selc": "input#gh-ac",
+          "search_btn_selc": "input#gh-btn",
+          "product_card_selc": "li.s-item.s-item__pl-on-bottom.s-item--watch-at-corner",
+          "product_link_selc": "div.s-item__info.clearfix>a.s-item__link::attr(href)",
+          "product_title_selc": "h1.x-item-title__mainTitle>span.ux-textspans.ux-textspans--BOLD::text",
+          "product_price_selc": "span#prcIsum::text"
+        }
+      }
+    ]
+  }
+  
