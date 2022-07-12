@@ -1,6 +1,6 @@
 import scrapy
 from scrapy.spiders import CrawlSpider
-from srappers.items import item_loader, ProductItem
+from scraper.items import item_loader, ProductItem
 import logging
 
 

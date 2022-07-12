@@ -1,4 +1,4 @@
-from scraper.providers.ProviderClass import Provider
+from scraper.providers.ProviderClass import ProviderClass
 from scraper.spiders.gen_spider import GenSpider
 from pathlib import Path
 import json
