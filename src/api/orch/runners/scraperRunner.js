@@ -1,6 +1,5 @@
 const {spawn} = require('node:child_process');
 const path = require('path')
-const matcher = require('matcher')
 
 let scrapeRunner = (args)=>{
     //spawn child process with python script file
