@@ -17,6 +17,7 @@ import logging
 options = Options()
 options.add_argument("-profile")
 options.add_argument("/home/abdessamadz/snap/firefox/common/.mozilla/firefox/g3l9pxya.bot_user")
+options.set_preference('detach', True)
 
 
 class Provider():

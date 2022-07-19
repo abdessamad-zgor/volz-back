@@ -7,6 +7,8 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
+
+
 BOT_NAME = 'scraper'
 
 SPIDER_MODULES = ['scraper.spiders']
@@ -86,3 +88,10 @@ ROBOTSTXT_OBEY = False
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+FEED={
+    'items.jsonl':{
+        'format': 'jsonlines',
+        'indent': 4,
+        'overwrite': True,
+    }
+}

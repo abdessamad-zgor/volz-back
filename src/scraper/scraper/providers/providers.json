@@ -11,6 +11,30 @@
           "product_title_selc": "h1.x-item-title__mainTitle>span.ux-textspans.ux-textspans--BOLD::text",
           "product_price_selc": "span#prcIsum::text"
         }
+      },
+      {
+        "name": "Amazon",
+        "url": "https://www.amazon.com",
+        "selectors":{
+          "search_box_selc": "input#twotabsearchtextbox",
+          "search_btn_selc": "input#nav-search-submit-button",
+          "product_card_selc": "div.s-result-item.s-asin",
+          "product_link_selc": "div.s-result-item.s-asin>a.a-link-normal.s-no-outline::attr(href)",
+          "product_title_selc": "span#productTitle::text",
+          "product_price_selc": "span#sns-base-price::text"
+        }
+      },
+      {
+        "name": "AliExpress",
+        "url": "https://best.aliexpress.com",
+        "selectors":{
+          "search_box_selc": "input#search-key",
+          "search_btn_selc": "div.searchbar-operate-box>input.search-button",
+          "product_card_selc": "a._3t7zg._2f4Ho",
+          "product_link_selc": "a._3t7zg._2f4Ho::attr(href)",
+          "product_title_selc": "h1.product-title-text::text",
+          "product_price_selc": "span.uniform-banner-box-price::text"
+        }
       }
     ]
   }
