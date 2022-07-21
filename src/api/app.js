@@ -4,7 +4,7 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
-
+const OrchController = require('./orch');
 
 const app = express();
 app.use(morgan('dev'));
@@ -19,10 +19,6 @@ app.route('/api/parse')
         status: 'working',
         name: "volz-back/api"
     })
-}).post((req, res)=>{
-    //calling orchastrator
-
-
-})
+}).post(OrchController);
 
 module.exports = app

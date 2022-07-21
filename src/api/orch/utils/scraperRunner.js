@@ -3,16 +3,22 @@ const path = require('path');
 
 let scrapeRunner = (args)=>{
     //spawn child process with python script file
-    let childProcess = spawn(`python3 -m scraper.scripts.main`, [...args], {cwd: path.join(__dirname, "../scraper"), env:process.env});
+    console.log(__dirname)
+    console.log(path.resolve(process.cwd(), "../scraper/scraper"));
+    let childProcess = spawn(`python3`, [...args], {cwd: path.resolve(process.cwd(), "../scraper"), env:process.env});
+    childProcess.stdout.setEncoding('utf8');
     let output = { }
     childProcess.stdout.on('data', (data)=>{
-        output.data = data
+        output.data = data;
+        console.log(output.data)
     });
+    childProcess.stderr.setEncoding('utf8')
     childProcess.stderr.on('data', (data)=>{
         output.error = data
+        console.log(output.error)
     })
     //return process output
-    return output
+    return{ childProcess, output}
 }
 
 

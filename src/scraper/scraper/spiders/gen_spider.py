@@ -9,13 +9,14 @@ import logging
 
 class GenSpider(CrawlSpider):
     name = 'crawl spiders'
+
     def __init__(self, search_params, provider_obj, *args, **kwargs):
         logger = logging.getLogger('scrapy.spidermiddlewares.httperror')
         logger.setLevel(logging.INFO)
         super(GenSpider, self).__init__(*args, **kwargs)
-
+        self.custom_settings = {'CLOSESPIDER_ITEMCOUNT': search_params['limit']}
         self.provider = provider_obj
-        self.limit = search_params['limit']
+
         self.search_params = search_params
     def start_requests(self):
         url = self.provider.search_for_args(self.search_params['keyword'])

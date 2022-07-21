@@ -2,6 +2,7 @@
 
 var app = require('../app');
 var http = require('http');
+var debug = require('debug');
 
 const appPort = normalizePort(process.env.PORT || 5000);
 app.set('port', appPort);
