@@ -5,7 +5,7 @@ const scrapeRunner = require('./utils/scraperRunner')
 
 const OrchController = (req, res)=>{
     let args = req.body.params;
-    let {childProcess, output} = scrapeRunner(['-m', 'scraper.scripts.script_test' ,args.keyword, args.limit]);
+    let {childProcess, output} = scrapeRunner(['-m', 'scraper.scripts.main' ,args.keyword, args.limit]);
     
     childProcess.on('exit', (code)=>{
         let data = FeedListner(FeedProcesser);

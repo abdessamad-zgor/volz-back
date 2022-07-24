@@ -15,17 +15,15 @@
 	<h1>
 		<span class="welcome">
 			<picture>
-				<source srcset="svelte-welcome.webp" type="image/webp" />
-				<img src="svelte-welcome.png" alt="Welcome" />
+
+				<img src="1.png" alt="Welcome to Wolbak" />
 			</picture>
 		</span>
 
-		to your new<br />SvelteKit app
+		Start finding the best products and services on the web
 	</h1>
 
-	<h2>
-		try editing <strong>src/routes/index.svelte</strong>
-	</h2>
+	
 
 	<Counter />
 </section>

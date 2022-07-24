@@ -1,12 +1,12 @@
 <script>
 	import { page } from '$app/stores';
-	import logo from './svelte-logo.svg';
+	import logo from './2.png';
 </script>
 
 <header>
 	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
+		<a href="/">
+			<img class='header-logo' src={logo} alt="Wolbak. LLC" />
 		</a>
 	</div>
 
@@ -40,8 +40,8 @@
 	}
 
 	.corner {
-		width: 3em;
-		height: 3em;
+		width: 4em;
+		height: 4em;
 	}
 
 	.corner a {
@@ -53,9 +53,8 @@
 	}
 
 	.corner img {
-		width: 2em;
-		height: 2em;
-		object-fit: contain;
+		width: 100%;
+		height: 100%;
 	}
 
 	nav {
@@ -120,5 +119,10 @@
 
 	a:hover {
 		color: var(--accent-color);
+	}
+	/* NEW CSS Classes*/
+	.header-logo{
+		min-height: 3em;
+		min-width: 3em;
 	}
 </style>
